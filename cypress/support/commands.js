@@ -25,3 +25,32 @@ Cypress.Commands.add("logout", () => {
     cy.get('#logout_sidebar_link')
         .click()
 })
+
+Cypress.Commands.add("addProductToCart", () => {
+    cy.contains('a', 'Backpack')
+        .invoke('text')
+        .then((nomeProduto) => {
+            cy.contains('button', 'ADD TO CART')
+                .first()
+                .click()
+            cy.get('a[href="./cart.html"]')
+                .click()
+            cy.get('.inventory_item_name').should('contain', nomeProduto)
+        })
+})
+
+Cypress.Commands.add("removeProductToCart", () => {
+    cy.get('.btn_secondary')
+        .click()
+    cy.contains('button', 'ADD TO CART')
+        .first()
+        .should('be.visible')
+})
+
+Cypress.Commands.add("continueShopping", () => {
+    cy.get('.btn_secondary')
+        .eq(1)
+        .click()
+        cy.get('.product_label')
+        .should('have.text', 'Products')
+})

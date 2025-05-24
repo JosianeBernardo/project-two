@@ -59,13 +59,3 @@ describe('home', () => {
     })
 
 })
-
-// it('Salva nome do produto e valida após adicionar ao carrinho', () => {
-//         cy.contains('a', 'Backpack')
-//             .invoke('text')
-//             .then((nomeProduto) => {
-//                 cy.contains('a', 'Backpack')
-//                     .click()
-//                 cy.get('.inventory_details_name').should('contain', nomeProduto)
-//             })
-//     })
